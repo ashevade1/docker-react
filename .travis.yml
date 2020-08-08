@@ -1,0 +1,9 @@
+sudo: required
+services:
+    - docker
+
+before_install:
+    - docker build -t ashevade/docker-react -f Dockerfile.dev .
+
+script:
+    docker run -e CI=true ashevade/docker-react npm run test 
